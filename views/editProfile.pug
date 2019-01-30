@@ -2,7 +2,9 @@ extends layouts/main
 
 block content
     .form-container
-        form(action=routes.userDetail method='post')
-            input(type='email' name='email' placeholder='Email')
-            input(type='text' name='name' placeholder='Name')
-            input(type='file' name='photo')
+        form(action=`/users${routes.userDetail}` method='post')
+            label(for='photo')
+            input(type='file', name='photo', id='file')
+            input(type='email', name='email', placeholder='Email')
+            input(type='text', name='name', placeholder='Name')
+            inpur(type='submit', value='Edit Profile')

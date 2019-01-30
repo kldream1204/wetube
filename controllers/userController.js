@@ -6,36 +6,51 @@ export const getJoin = (req, res) =>{
     
     }
     
-    export const postJoin = (req, res) => {
+export const postJoin = (req, res) => {
     
-        const {body: {name, email, password, password2}} = req;
+    const {body: {name, email, password, password2}} = req;
         if(password !== password2) {
             res.status(400);
             res.render('join' , {pageTitle: 'Join'});
         }else {
-            res.redirect(routes.home)
+           res.redirect(routes.home)
         }
         
     }
-    export const getLogin = (req, res) =>  {
+export const getLogin = (req, res) =>  {
 
 
-        res.render('login', {pageTitle: 'Login'});
+    res.render('login', {pageTitle: 'Login'});
         
-        }
-        
-        
-        export const postLogin = (req, res) =>  {
+}
         
         
-        res.redirect(routes.home);
-        
-        }
+export const postLogin = (req, res) =>  {
         
         
-        export const logout = (req, res) => {
-        res.redirect(routes.home);    
-        }
+    res.redirect(routes.home);
+        
+}
+        
+        
+export const logout = (req, res) => {
+    res.redirect(routes.home);    
+}
+
 export const userDetail = (req, res) => res.render('userDetail');
-export const editProfile = (req, res) => res.render('editProfile');
-export const changePassword = (req, res) => res.render('changePassword');
+
+export const getEditProfile = (req, res) => {
+    res.render('editProfile');
+}
+export const postEditProfile = (req, res) => {
+    res.redirect(routes.userDetail(1));
+}
+
+export const getChangePassword = (req, res) => {
+    res.render('changePassword');
+   
+}
+export const postChangePassword = (req, res) => {
+    res.redirect(routes.userDetail(1));  
+    
+}
