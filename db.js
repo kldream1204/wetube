@@ -1,38 +1,21 @@
-export const videos = [
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
+
+
+mongoose.connect(
+    process.env.MONGO_URL,
     {
-        id:489278,
-        title: 'Video awsome!',
-        description:'im a good boy',
-        views: 20341,
-        videoFile: '',
-        creator: {
-            id:880390,
-            name:'kks',
-            email:'kks@kkk.kkk'
-        }
-    },
-    {
-        id:289409,
-        title: 'Video amaging!',
-        description:'cold hot hot',
-        views: 1934,
-        videoFile: '',
-        creator: {
-            id:482048,
-            name:'kmy',
-            email:'kmy@kkk.kkk'
-        }
-    },
-    {
-        id:123615,
-        title: 'starbucks',
-        description:'good coffee',
-        views: 2032,
-        videoFile: '',
-        creator: {
-            id:123523,
-            name:'kkk',
-            email:'kkk@kkk.kkk'
-        }
-    },
-]
+        useNewUrlParser:true,
+        useFindAndModify:false
+
+});
+
+const db = mongoose.connection;
+
+const handleOpen = () => console.log('Connected to db');
+const handleError = () => console.log('Error!');
+
+
+db.once('open', handleOpen);
+db.on('error', handleError)
