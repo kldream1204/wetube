@@ -18,4 +18,4 @@ const handleError = () => console.log('Error!');
 
 
 db.once('open', handleOpen);
-db.on('error', handleError)
+db.on('error', handleError);
