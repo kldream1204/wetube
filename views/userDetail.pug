@@ -1,14 +1,14 @@
 extends layouts/main
 
 block content
-    .user-detail__column
-        a(href=`/users${routes.editProfile}`) Edit Profile
-        a(href=`/users${routes.changePassword}`) Change Password
+    if user.id === loginUser.id
+       .user-detail__column
+            a(href=`/users${routes.editProfile}`) Edit Profile
+            a(href=`/users${routes.changePassword}`) Change Password
     .user-detail__column    
-        img(src='#' alt='user')    
+        img(src=`/${user.avatarUrl}`, alt='user')    
         h4 Name
-            h4 #{user.name}
+            h4=user.name
         h4 Email    
-            h4 #{user.email}
+            h4=user.email
 
-    
