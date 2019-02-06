@@ -4,10 +4,14 @@ block content
     .video__player 
         video(src=`/${video.fileUrl}`, controls=true)
     .video__info
-        a(href=routes.editVideo(video.id)) Edit Video
+        if loginUser && video.creator.id === loginUser.id
+            a(href=routes.editVideo(video.id)) Edit Video
         h5.video__title=video.title
         span.video__views=video.views
         p.video__description=video.description
+    .video__creator 
+        |creator
+        a(href=routes.userDetail(video.creator.id))=video.creator.name
     .video__comment
         if video.comments.length === 0
             span.video__comment-number 0 comment

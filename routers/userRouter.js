@@ -13,7 +13,7 @@ userRouter.post(routes.editProfile, onlyPrivate, uploadAvatar, postEditProfile);
 
 userRouter.get(routes.me, onlyPrivate, me)
 
-userRouter.get(routes.userDetail(), onlyPrivate, userDetail);
+userRouter.get(routes.userDetail(), userDetail);
 
 
 export default userRouter;

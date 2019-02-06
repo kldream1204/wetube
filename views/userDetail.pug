@@ -1,7 +1,7 @@
 extends layouts/main
 
 block content
-    if user.id === loginUser.id
+    if loginUser && user.id === loginUser.id
        .user-detail__column
             a(href=`/users${routes.editProfile}`) Edit Profile
             a(href=`/users${routes.changePassword}`) Change Password

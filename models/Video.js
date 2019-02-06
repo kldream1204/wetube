@@ -21,7 +21,11 @@ const VIDEOSchema = new mongoose.Schema({
     comments: [{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
-    }]
+    }],
+    creator: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "user"
+    }
 });
 
 const model = mongoose.model("Video", VIDEOSchema);
